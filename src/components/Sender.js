@@ -13,10 +13,10 @@ class Sender extends Component {
           placeholder="Text here...."
           onChange={this.handleInputChange}
           style={styles.input}
+          ref={(r) => {this.inputValue = r }}
         />
         <button
           style={styles.button}
-          onClick={()=>alert("ss")}
         >
           Send
         </button>

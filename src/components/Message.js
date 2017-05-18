@@ -8,7 +8,12 @@ class Message extends Component {
 
   render() {
     const { greeting } = this.state
-    return <p className="text-lg">{greeting}</p>
+    return (
+      <p className="text-lg">
+        <span>{this.props.owner}</span>
+        {this.props.body}
+      </p>
+    )
   }
 }
 

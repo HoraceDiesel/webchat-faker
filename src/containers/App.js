@@ -15,7 +15,8 @@ class App extends Component {
           </div>
           <div className="wrapper-message">
             <Message
-
+              owner={"System: "}
+              body={"sdsa"}
             />
           </div>
           <Spacer size='lg' />
