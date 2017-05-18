@@ -18,3 +18,11 @@
   padding: 18px;
   border: 1px solid #fff;
 }
+
+.spacer-lg {
+  height: 2rem;
+}
+
+.spacer-sm {
+  height: 1rem;
+}
