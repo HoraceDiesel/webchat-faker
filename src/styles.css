@@ -1,0 +1,20 @@
+.App {
+  width: 308px;
+  height: 255px;
+  color: #fff;
+  background-color: #9C2626;
+  margin: 10% auto;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+
+.App-header {
+  margin-bottom: 1rem;
+}
+
+.wrapper-message {
+  background-color: #DFDFDF;
+  border-radius: 6px;
+  padding: 18px;
+  border: 1px solid #fff;
+}
