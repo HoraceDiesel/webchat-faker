@@ -19,7 +19,20 @@ export const allMessages = (state=[], action) => {
   }
 }
 
+
+export const typing = (state=false, action) => {
+  switch (action.type) {
+    case C.IS_TYPING:
+      return true
+    case C.ENDS_TYPING:
+      return false
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   count,
+  typing,
   allMessages
 })
