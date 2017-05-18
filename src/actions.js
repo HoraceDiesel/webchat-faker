@@ -4,10 +4,12 @@ export const chatting = (owner, body) => (dispatch, getState) =>
 {
   dispatch(addMessage(owner, body))
   dispatch(isTyping())
+  dispatch(addCount())
 
   setTimeout(()=>{
     dispatch(endsTyping())
     dispatch(addMessage("Mary", MARYS_REPLY))
+    dispatch(addCount())
   }, 3000)
 }
 
@@ -41,5 +43,11 @@ export const addCount = () =>
 export const sayGreetings = () => (dispatch, getState) => {
   setTimeout(()=>{
     dispatch(addMessage("Mary", GREETINGS))
+    dispatch(addCount())
   },1000)
 }
+
+export const clearAll = () =>
+({
+  type: C.RESET
+})

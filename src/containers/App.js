@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Spacer from '../styled/Spacer'
 import '../styles.css';
-import Message from '../components/Message'
-import Sender from '../components/Sender'
+import MessageList from './MessageList'
+import Sender from './Sender'
+import EndButton from './EndButton'
 
 class App extends Component {
+
   render() {
     return (
       <MuiThemeProvider>
@@ -13,16 +15,12 @@ class App extends Component {
           <div className="App-header">
             <h3 className="my-0">WebChat</h3>
           </div>
-          <div className="wrapper-message">
-            <Message
-              owner={"System: "}
-              body={"sdsa"}
-            />
-          </div>
+          <MessageList />
           <Spacer size='lg' />
           <div>
             <Sender />
           </div>
+          <EndButton />
         </div>
       </MuiThemeProvider>
     );

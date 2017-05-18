@@ -1,29 +1,4 @@
-import React, {Component} from 'react'
-
-class Sender extends Component {
-
-  handleInputChange = () => {
-    return
-  }
-
-  render() {
-    return (
-      <div>
-        <input
-          placeholder="Text here...."
-          onChange={this.handleInputChange}
-          style={styles.input}
-          ref={(r) => {this.inputValue = r }}
-        />
-        <button
-          style={styles.button}
-        >
-          Send
-        </button>
-      </div>
-    )
-  }
-}
+import React from 'react'
 
 const styles = {
   input: {
@@ -37,6 +12,40 @@ const styles = {
     marginLeft: '1rem',
     cursor: 'pointer'
   }
+}
+
+const Sender = ({ count, onButtonPress=f=>f }) => {
+
+  let _inputValue = ""
+
+  const handleInput = () => {
+    console.log(_inputValue.value)
+  }
+
+  return ((count === 0) ? (
+      <button
+        onClick={()=>onButtonPress()}
+        style={styles.button}
+      >
+        Chat Now
+      </button>
+    ) : (
+      <div>
+        <input
+          placeholder="Text here...."
+          style={styles.input}
+          ref={r => _inputValue = r }
+          onChange={handleInput}
+        />
+        <button
+          onClick={()=>onButtonPress("Nicholas", _inputValue.value)}
+          style={styles.button}
+        >
+          Send
+        </button>
+      </div>
+    )
+  )
 }
 
 export default Sender

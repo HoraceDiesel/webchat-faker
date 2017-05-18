@@ -1,20 +1,13 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class Message extends Component {
+const Message = ({owner, body}) => {
 
-  state = {
-    greeting: "Start Chatting by clicking \"Chat Now\""
-  }
-
-  render() {
-    const { greeting } = this.state
-    return (
-      <p className="text-lg">
-        <span>{this.props.owner}</span>
-        {this.props.body}
-      </p>
-    )
-  }
+  return (
+    <p className="text-lg">
+      {owner && <strong>{owner}: </strong> }
+      {body}
+    </p>
+  )
 }
 
 export default Message
