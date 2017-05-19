@@ -1,18 +1,5 @@
 import C, { MARYS_REPLY, GREETINGS } from './constants'
 
-export const chatting = (owner, body) => (dispatch, getState) =>
-{
-  dispatch(addMessage(owner, body))
-  dispatch(isTyping())
-  dispatch(addCount())
-
-  setTimeout(()=>{
-    dispatch(endsTyping())
-    dispatch(addMessage("Mary", MARYS_REPLY))
-    dispatch(addCount())
-  }, 3000)
-}
-
 export const addMessage = (owner, body) => (
   {
     type: C.ADD_MESSAGE,
@@ -45,6 +32,19 @@ export const sayGreetings = () => (dispatch, getState) => {
     dispatch(addMessage("Mary", GREETINGS))
     dispatch(addCount())
   },1000)
+}
+
+export const chatting = (owner, body) => (dispatch, getState) =>
+{
+  dispatch(addMessage(owner, body))
+  dispatch(isTyping())
+  dispatch(addCount())
+
+  setTimeout(()=>{
+    dispatch(endsTyping())
+    dispatch(addMessage("Mary", MARYS_REPLY))
+    dispatch(addCount())
+  }, 3000)
 }
 
 export const clearAll = () =>

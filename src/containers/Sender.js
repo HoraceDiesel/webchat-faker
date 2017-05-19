@@ -1,4 +1,3 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import Sender from '../components/Sender'
 import { chatting, sayGreetings } from '../actions'
