@@ -3,10 +3,12 @@ import React from 'react'
 const Message = ({owner, body}) => {
 
   return (
-    <p className="text-lg">
-      {owner && <strong>{owner}: </strong> }
-      {body}
-    </p>
+    <div className={`wrapper-inner-msg ${owner=='Nicholas' && 'bg-lighter'}`}>
+      <p className={owner ? "" : "text-lg text-bold"}>
+        {owner && <strong className="text-black">{owner}: </strong> }
+        {body}
+      </p>
+    </div>
   )
 }
 

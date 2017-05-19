@@ -19,10 +19,26 @@ body {
 }
 
 p {
-  margin-top: 0;
+  margin: 0;
   color: #646371;
 }
 
 .text-lg {
   font-size: 1.8rem;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-black {
+  color: #000;
+}
+
+.bg-lighter {
+  background-color: #eeeeee;
+}
+
+button[disabled] {
+  cursor: not-allowed;
 }

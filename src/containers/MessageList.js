@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 const mapStateToProps = (state) => {
   return {
     messages: state.allMessages,
-    count: state.count
+    count: state.count,
+    typing: state.typing
   }
 }
 

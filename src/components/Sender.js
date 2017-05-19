@@ -1,51 +1,67 @@
-import React from 'react'
+import React, {Component} from 'react'
+import '../styles.css'
 
 const styles = {
   input: {
     backgroundColor: '#fff',
-    width: '80%'
-  },
-  button: {
-    color: '#fff',
-    backgroundColor: '#9C2626',
-    border: '1px solid white',
-    marginLeft: '1rem',
-    cursor: 'pointer'
+    width: '70%',
+    padding: '3px'
   }
 }
 
-const Sender = ({ count, onButtonPress=f=>f }) => {
+class Sender extends Component {
 
-  let _inputValue = ""
-
-  const handleInput = () => {
-    console.log(_inputValue.value)
+  state = {
+    inputs: ''
   }
 
-  return ((count === 0) ? (
-      <button
-        onClick={()=>onButtonPress()}
-        style={styles.button}
-      >
-        Chat Now
-      </button>
-    ) : (
-      <div>
-        <input
-          placeholder="Text here...."
-          style={styles.input}
-          ref={r => _inputValue = r }
-          onChange={handleInput}
-        />
+  handleInput = (e) => {
+    this.setState({
+      inputs: e.target.value
+    })
+  }
+
+  emptyInput = () => {
+    this.setState({
+      inputs: ''
+    }, this._inputValue.value='')
+  }
+
+  render() {
+    const { count, onButtonPress } = this.props
+
+    return ((count === 0) ? (
+      <div className="button-send">
         <button
-          onClick={()=>onButtonPress("Nicholas", _inputValue.value)}
-          style={styles.button}
+          onClick={()=>onButtonPress()}
+          className="sender link"
         >
-          Send
+          Chat now
         </button>
       </div>
+      ) : (
+        <div className="chat-box">
+          <input
+            placeholder="Text here...."
+            style={styles.input}
+            ref={r => this._inputValue = r }
+            onChange={this.handleInput}
+          />
+          <button
+            type='button'
+            disabled={!this.state.inputs}
+            onClick={()=>{
+              onButtonPress("Nicholas", this._inputValue.value)
+              this.emptyInput()
+            }}
+            className="sender button"
+          >
+            send
+          </button>
+        </div>
+      )
     )
-  )
+  }
 }
 
 export default Sender

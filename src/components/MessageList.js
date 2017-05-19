@@ -1,8 +1,9 @@
 import React from 'react'
 import Message from './Message'
 import { INIT_MESSAGE } from '../constants'
+import '../styles.css'
 
-const MessageList = ({messages, count}) => {
+const MessageList = ({messages, count, typing}) => {
   return (
     <div className="wrapper-message">
       {
@@ -18,6 +19,12 @@ const MessageList = ({messages, count}) => {
             body={message.body}
           />
         ))
+      }
+      {
+        typing && (
+          <span className="typing">
+            Mary is typing...
+          </span>)
       }
     </div>
   )

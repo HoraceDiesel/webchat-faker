@@ -13,14 +13,13 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           <div className="App-header">
-            <h3 className="my-0">WebChat</h3>
+            <h3 className="my-0">WebChat <EndButton /> </h3>
           </div>
           <MessageList />
           <Spacer size='lg' />
           <div>
             <Sender />
           </div>
-          <EndButton />
         </div>
       </MuiThemeProvider>
     );
